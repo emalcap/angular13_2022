@@ -1,0 +1,84 @@
+   <!-- Main content -->
+  <section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Title</h3>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+            <i class="fas fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+
+        <div>
+          <select name="miselect" >
+          <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+          </select>
+        </div>    
+    <br>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="openModal()">
+      Launch static backdrop modal
+    </button>
+        <br>
+        <br>
+     <table class="table">
+       <thead>
+        <th>Id</th>
+        <th>InspectionTyoe</th>
+        <th>Status</th>
+        <th>Comments</th>
+        <th>Action</th>
+       </thead> 
+        <tbody>
+           <tr *ngFor="let item of dataInspection">
+            <td>{{item.id}}</td>            
+          <td>{{item.inspectionTypeId}}</td>
+           <!-- <td {{inspectiontypeMap.get(item.inspectionTypeId)}}></td>-->
+            <td>{{item.status}}</td>           
+            <td>{{item.comments}}</td>
+            <td><button type="button" class="btn-sm"  (click)="functionedit(item.id)" ><i class="nav-icon fas fa-columns"></i></button> | 
+              <a class="btn btn-danger" (click)="functiondelete(item.id)" >Delete</a>
+            </td>
+           </tr>
+        </tbody>
+     </table>
+    
+     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+               <ul>
+                <li *ngFor="let item of dataInspectionType"> {{item.id}} -{{item.inspectionName}}</li>
+               </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="doSomeThing()">Understood</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          
+      </div>
+      <!-- /.card-body -->
+      <div class="card-footer">
+        Footer
+      </div>
+      <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+  </section>
