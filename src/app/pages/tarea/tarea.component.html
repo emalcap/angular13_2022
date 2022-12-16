@@ -1,0 +1,86 @@
+  <!-- Main content -->
+  <section class="content">
+    <!-- Default box -->
+        <div class="card">      
+            <div class="card-body">
+
+                <div id="tollbar" style="margin-bottom: 1em;">
+                    <button type="button" class="btn btn-sm btn-success"
+                        data-bs-toggle="modal" data-bs-target="#modalTarea">                  
+                        Nuevo
+                    </button>
+                    <button type="button" class="btn btn-sm btn-primary" style="margin-left: 5px;"
+                        (click)="mantTarea()">                                    
+                        Grabar
+                    </button>
+                </div>           
+            
+                <table id="example2" class="table table-bordered table-hover" style="font-size: 12px;" >
+                    <thead>
+                        <th>Id</th>
+                        <th>Tarea</th>
+                        <th>Estado</th>          
+                    </thead> 
+                    <tbody>
+                        <tr *ngFor="let item of lstTarea, let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.nombre}}</td>
+                        <td>
+                            <input  type="checkbox" [checked]="item.estado == true" (change)="estadoTareaChecked(item,$event.target)">
+                        </td>            
+                    </tr>
+                    </tbody>
+                </table>  
+                    <hr>
+                <div style="margin-bottom: 1em;">
+
+                    <button type="button" class="btn btn-sm btn-success"                    
+                        (click)="listaPerson()">          
+                        Listar
+                    </button>  
+
+                    <button type="button" class="btn btn-sm btn-primary"  style="margin-left: 10px; "                 
+                        (click)="save()">          
+                        Grabar
+                    </button>                    
+                </div>  
+
+                <table id="example2" class="table table-bordered table-hover" style="font-size: 12px;" >
+                    <thead>
+                        <th>Id</th>
+                        <th>nombre</th>
+                        <th>direcion</th>    
+                        <th>edad</th>  
+                        <th>sueldo</th>  
+                        <th>2 decimales</th> 
+                        <th>input</th>
+                        <th>estado</th>   
+                        <th class="text-center">
+                            <input type="checkbox" [checked]="isCheckedAll()" (change)="checkedAll($event.target)">
+                        </th>         
+                    </thead> 
+                    <tbody>
+                        <tr  *ngFor="let item of persona, let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.direccion}}</td>
+                        <td>{{item.edad}}</td>
+                        <td   style="text-align: right;">{{item.sueldo| number:'.0-0'}}</td>
+                        <td   style="text-align: right;">{{item.sueldo| number:'.0-2'}}</td>
+                        <td>
+                            <input  type="number" [(ngModel)] ="item.sueldo"  style="text-align: right;"
+                            (change)="nuevoSueldo(item,$event.target)">
+                        </td>
+                        <td>{{item.estado}} 
+                            <input  type="checkbox" [checked]="item.estado == 1" (change)="valorchecked(item,$event.target)">
+                        </td>  
+                        <th class="text-center"><input type="checkbox" [(ngModel)]="item.checked"></th>            
+                    </tr>
+                    </tbody>
+                </table>   
+                  
+            </div>
+            <!-- /.card-body -->        
+        </div>
+      <!-- /.card -->  
+    </section>

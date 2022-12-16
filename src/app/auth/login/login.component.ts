@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -20,19 +21,25 @@ export class LoginComponent implements OnInit {
     remember:[localStorage.getItem('remember') || '' ]
   })
 
-  constructor( private fb:FormBuilder, private router:Router,private loginAuth: AuthService,private storeservice:LocalstorageService) { }
+  constructor( private fb:FormBuilder, private router:Router,private loginAuthService: AuthService,private storeservice:LocalstorageService) { }
 
   ngOnInit(): void {
     this.storeservice.clear();
+
+    this.loginForm= this.fb.group({
+      email: "emalcap@gmail.com",
+      password: "3Lmermesias"
+    })
   
   }
   async login(){
      //console.log(this.loginForm.value)
-     this.loginAuth.loginUser([
+     this.loginAuthService.loginUser([
       this.loginForm.value.email,
       this.loginForm.value.password
     ]).subscribe({
       next: (data) => {
+    
         console.log(data)
         if (data.isExitoso == true ){
           this.router.navigate(['dashboard'])

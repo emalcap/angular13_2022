@@ -3,6 +3,7 @@ import { AnyARecord } from 'dns';
 import { Inspetion } from 'src/app/interfaces/IInspetion';
 import { InspetionType } from 'src/app/interfaces/IInspetionType';
 import { InspecionService } from 'src/app/services/inspecion.service';
+import { PopuInspectionComponent } from './popu-inspection/popu-inspection.component';
 
 // emp
 declare var window: any;
@@ -25,6 +26,10 @@ export class InspectionComponent implements OnInit {
  // modal
  formModal:any;
 
+
+ @ViewChild(PopuInspectionComponent) addview !:PopuInspectionComponent
+
+ 
   constructor( private inspectionService:InspecionService) {    
      //alert(1)    
   }
@@ -49,10 +54,6 @@ export class InspectionComponent implements OnInit {
   doSomeThing(){
     this.formModal.hide();
   }
-
-
-
-
 
   lstInspection (){
     this.inspectionService.loadInspection(0)
@@ -103,8 +104,9 @@ export class InspectionComponent implements OnInit {
 
   functionedit(code:number){
 
-    alert(code)
-   // this.addview.LoadEditData(code);
+  
+   this.addview.loadEditData(code);
+   alert(code)
 
   }
 

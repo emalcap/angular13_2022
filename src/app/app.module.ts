@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
@@ -9,6 +9,7 @@ import { NopageFoundComponent } from './nopage-found/nopage-found.component';
 import { PagesModule } from './pages/pages.module';
 
 import { AuthModule } from './auth/auth.module';
+import { DatePipe, DecimalPipe } from '@angular/common';
 
 
 
@@ -27,13 +28,20 @@ import { AuthModule } from './auth/auth.module';
     AuthModule,  
     HttpClientModule,// EMP para usuar HttpClient  
     PagesModule,
+    // para formularios
     FormsModule,
     ReactiveFormsModule,
-  
     
+  
    
   ],
-  providers: [],
+  // para las fecha loca
+  providers: [
+    // formato fecha
+    DatePipe,
+    DecimalPipe,
+   // {provide:LOCALE_ID,useValue:'es'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -19,6 +19,9 @@ import { InspecionService } from '../services/inspecion.service';
 import { CompaniaComponent } from './compania/compania.component';
 import { CompaniaService } from '../services/compania.service';
 import { PopuInspectionComponent } from './inspection/popu-inspection/popu-inspection.component';
+import { ModalemployeeComponent } from './employee/modalemployee/modalemployee.component';
+import { TareaComponent } from './tarea/tarea.component';
+import { CreditoComponent } from './credito/credito.component';
 
 
 
@@ -33,6 +36,10 @@ import { PopuInspectionComponent } from './inspection/popu-inspection/popu-inspe
     InspectionComponent,
     CompaniaComponent,
     PopuInspectionComponent,
+    
+    ModalemployeeComponent,
+         TareaComponent,
+         CreditoComponent,
    
   ],
   imports: [
@@ -44,6 +51,7 @@ import { PopuInspectionComponent } from './inspection/popu-inspection/popu-inspe
     FormsModule,  
     ReactiveFormsModule,
     
+
   ],
   exports:[
     DashboardComponent,

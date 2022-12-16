@@ -1,31 +1,99 @@
   <!-- Main content -->
-  <section class="content">
-
+  <section class="content">   
     <!-- Default box -->
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Title</h3>
+    <div class="card">   
+      
+      <div class="card-body">
+        <div style="align-content: center;">
 
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-            <i class="fas fa-times"></i>
-          </button>
+          <div>
+            <form [formGroup]="frmMy" (ngSubmit)="enviarFormulario()">     
+            desde:
+            <input type="date" formControlName="fechaDesde" [min]="fechaStrDesde"  [max]="fechaStrHasta">
+            <br>
+            <br>
+            hasta:
+            <input type="date" formControlName="fechaHasta" min="2021-01-01" max="2023-01-01">
+            <br>
+            <br>
+            <button type="submit" class="btn btn-sm btn-primary">Enviar</button>
+          </form>
+          </div>
+          {{frmMy.invalid}}
+          <br>
+          {{frmMy.controls.fechaDesde.error | json}}
+          {{frmMy.controls.fechaHasta.error | json}}
+        <hr>
+
+
+        <form autocomplete="off" [formGroup]="frmSimulador" style="font-size: 12px;">
+          <div class="row mb-3">
+              <label for="montoCredito" class="col-sm-2 col-form-label">Monto</label>
+              <div class="col-sm-3">
+                  <input type="number" class="form-control form-control-sm" id="montoCredito"  formControlName = "monto" pattern="[0-9]\d{6,10}" placeholder="">
+              </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputDireccion" class="col-sm-2 col-form-label">Fecha Desenbolso</label>
+            <div class="col-sm-3">
+                <input  type="date" class="form-control form-control-sm" id="inputDireccion" formControlName="fecha"   placeholder="">
+               
+              </div>
+              
         </div>
+          <div class="row mb-3">
+              <label for="inputTelefono1" class="col-sm-2 col-form-label">TEA</label>
+              <div class="col-sm-3">
+                  <input type="text" class="form-control form-control-sm" id="inputTelefono1" formControlName="tea" placeholder="">
+              </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputTelefono1" class="col-sm-2 col-form-label">Nro Cuotas</label>
+            <div class="col-sm-3">
+                <input type="number" class="form-control form-control-sm" formControlName="nroCuotas"  min="6" max="99"placeholder="">
+            </div>
+        </div>          
+          <div class="col-sm-3">
+          <button type="button" class="btn btn-sm btn-primary" (click)="simularCredito()">Simular</button>
+          </div>     
+      </form> 
+    </div>  
+    <br>
+
+    <div *ngIf="lstDetalleCredito.length > 0"  class="card">
+      <div class="card-header">
+        <h3 class="card-title">Detalle Credito</h3>
       </div>
       <div class="card-body">
-        
-     
-       
+   <!-- <div>{{lstDetalleCredito| json}}</div>  -->
+    
+          <table id="example2"   class="table table-bordered table-hover" style="font-size: 12px;" >
+            <thead>        
+              <th>Cuota</th>
+              <th>fecha Pago</th>              
+              <th>Saldo Capital</th>
+              <th>Amortización</th>
+              <th>interes</th>
+              <th>Cuota</th>
+            </thead> 
+            <tbody>
+                <tr *ngFor="let item of lstDetalleCredito ,let i = index">            
+                <td>{{item.nroCuota}}</td>
+                <td>{{item.fechaPago | date: 'dd/MM/yyyy'}}</td>                
+                <td>{{item.saldoCapital | number:'.2-2'}}</td> 
+                <td>{{item.amortizacion | number:'.2-2'}}</td>  
+                <td>{{item.interes | number:'.2-2'}}</td>    
+                <td>{{item.cuotafija | number:'.2-2'}}</td>            
+              
+                </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-      <!-- /.card-body -->
-      <div class="card-footer">
-        Footer
-      </div>
+
+  </div>    
       <!-- /.card-footer-->
-    </div>
+  </div>
     <!-- /.card -->
 
   </section>

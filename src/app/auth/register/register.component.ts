@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild,} from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators ,FormControl,FormGroup} from '@angular/forms';
+
 import { Router } from '@angular/router';
 import { IUsuario } from 'src/app/interfaces/IUsuario';
 
@@ -15,6 +16,9 @@ export class RegisterComponent implements OnInit {
   @ViewChild('password') passwordRef!:ElementRef;
   @ViewChild('togglePassword') togglePasswordRef!:ElementRef;
   
+     //user :  FormGroup;
+
+
     registerForm= this.fb.group({
     usuario:['', [Validators.required,Validators.minLength(6)]],
     email:[localStorage.getItem('email') || '', [Validators.required, Validators.email]],
@@ -25,6 +29,19 @@ export class RegisterComponent implements OnInit {
   constructor(private fb:FormBuilder, private router:Router,private authService:AuthService) { }
 
   ngOnInit(): void {
+ 
+    this.registerForm = this.fb.group({
+      usuario:['emalcap'],
+      email:['emalcap@gmail.com'],
+      password:['123456']
+    })
+
+   /* this.user = new FormGroup({
+      name: new FormControl(''),
+      password: new FormControl(''),
+      passwordRepeat: new FormControl('')
+    });
+      */
   }
 
    

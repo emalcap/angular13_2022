@@ -13,11 +13,13 @@ export class SiderbarComponent implements OnInit {
   menuItems?:any[];
   modulos?:any[];
 
-  datoUsuario ={
+   datoUsuario ={
     usuario :'',
     idUsaurio: 0
     
   };
+
+
 
 
   constructor( private siderbarService: SiderbarService, private router:Router,storeUsuario:LocalstorageService) { 
@@ -26,8 +28,7 @@ export class SiderbarComponent implements OnInit {
    this.modulos =  this.siderbarService.modulos;
    this.datoUsuario =  storeUsuario.get('localStoreUsuario');
     //console.log(this.datoUsuario); 
-   //console.log(this.datoUsuario.usuario);
-   
+   //console.log(this.datoUsuario.usuario);   
        
   }
 

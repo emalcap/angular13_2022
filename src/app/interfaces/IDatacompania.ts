@@ -10,4 +10,5 @@ export interface Compania {
     direccion:      string;
     telefono:       string;
     telefono2:      string;
+    mantenimiento: string ;
 }

@@ -1,10 +1,6 @@
-<div  *ngIf="openHideModal == true" >
-  <app-popu-inspection></app-popu-inspection>
-</div>
 
   <!-- Main content -->
   <section class="content">
-
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
@@ -20,12 +16,9 @@
         </div>
       </div>
       <div class="card-body">
-
-        <button type="button" class="btn btn-primary"    (click)="openModal()" >
-        Abrir modal
-        </button>
-      
-               
+        <button type="button" class="btn btn-primary" (click)="functionedit()">
+           Abrir modal
+        </button>  
       </div>
       <!-- /.card-body -->
       <div class="card-footer">
@@ -34,5 +27,6 @@
       <!-- /.card-footer-->
     </div>
     <!-- /.card -->
-
   </section>
+
+  

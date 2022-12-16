@@ -1,0 +1,72 @@
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+            <!-- <h3 class="card-title">DataTable with minimal features & hover style</h3>-->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <form autocomplete="off" [formGroup]="frmCredito"  style="font-size: 11px;">
+                    <div class="row mb-3">
+                        <label for="txtMonto" class="col-sm-2 col-form-label">Monto Crédito</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control form-control-sm" id="txtMonto" min="100" max="100000"  placeholder="6-100000">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="txtFecha" class="col-sm-2 col-form-label">Fecha Desembolso</label>
+                      <div class="col-sm-2">
+                          <input type="Date" class="form-control form-control-sm" id="txtFecha" placeholder="">
+                      </div>
+                  </div>
+                    <div class="row mb-3">
+                        <label for="txtTea" class="col-sm-2 col-form-label">Tasa Efectiva Anual %</label>
+                        <div class="col-sm-2">
+                            <input type="number" class="form-control form-control-sm" id="txtTea" min="6" max="50" placeholder=" 6 - 50">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="txtNroCuotas" class="col-sm-2 col-form-label">Número Cuotas</label>
+                      <div class="col-sm-2">
+                          <input type="number" class="form-control form-control-sm" id="txtNroCuotas" min="1" max="99"  placeholder="">
+                      </div>
+                  </div>                  
+                    <!--<div class="row mb-3">
+                        <div class="col-sm-2 offset-sm-2">
+                            <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="checkRemember">
+                                    <label class="form-check-label" for="checkRemember">Remember me</label>
+                            </div>
+                        </div>
+                    </div>  -->
+                    <br>
+                    <div class="row mb-3">
+                        <div class="col-sm-2 offset-sm-2">
+                            <button class="btn btn-sm btn-primary">Simulación</button>
+                        </div>
+                    </div>           
+                </form>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          <div class="card">
+            <div class="card-header">
+             <!-- <h3 class="card-title">DataTable with default features</h3>-->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>

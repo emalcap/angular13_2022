@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
+
+
 
 @Component({
   selector: 'app-employee',
@@ -7,19 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeComponent implements OnInit {
 
-  openHideModal:boolean = false;
+
+
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-   openModal(){
+  functionedit(){
+   alert(1)
+   // const modalRef = this.servicoModal.open(ModalemployeeComponent)
+    //modalRef.componentInstance.pernos = persona:any[];
+  }
   
-    this.openHideModal = true;
-   }
-
-   hiideModal(){
-    this.openHideModal = true;
-   }
 }

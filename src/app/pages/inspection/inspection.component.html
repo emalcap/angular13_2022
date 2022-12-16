@@ -1,3 +1,6 @@
+<!-- 
+  <app-popu-inspection></app-popu-inspection>
+-->
    <!-- Main content -->
   <section class="content">
 
@@ -44,7 +47,10 @@
            <!-- <td {{inspectiontypeMap.get(item.inspectionTypeId)}}></td>-->
             <td>{{item.status}}</td>           
             <td>{{item.comments}}</td>
-            <td><button type="button" class="btn-sm"  (click)="functionedit(item.id)" ><i class="nav-icon fas fa-columns"></i></button> | 
+            <td>
+              <button type="button" class="btn-sm"  (click)="functionedit(item.id)" data-bs-toggle="modal" data-bs-target="#modalInspection" >
+              <i class="nav-icon fas fa-columns"></i>
+            </button> | 
               <a class="btn btn-danger" (click)="functiondelete(item.id)" >Delete</a>
             </td>
            </tr>
@@ -70,8 +76,29 @@
             </div>
           </div>
         </div>
+   
 
+<!-- modal nuevo Editar inspection-->
           
+<div class="modal fade" id="modalInspection" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           <app-popu-inspection></app-popu-inspection>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="doSomeThing()">Understood</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
       </div>
       <!-- /.card-body -->
       <div class="card-footer">

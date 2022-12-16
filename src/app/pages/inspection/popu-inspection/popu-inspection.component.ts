@@ -7,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopuInspectionComponent implements OnInit {
 
+  openHideModal = false ;
+
   constructor() { }
 
   ngOnInit(): void {
     alert(80)
   }
+
+  loadEditData(code:any){
+
+    alert('elmer:'+code)
+  };
+
+ 
+
 
 }

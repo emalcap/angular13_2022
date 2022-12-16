@@ -15,13 +15,16 @@ export class SiderbarService {
     {
       titulo : "Dashboard",
       icono:"right fas fa-angle-left",
-      submenu:[
-        {titulo:"Employee",url:"employee",icono:"fa fa-user" ,idMenu : 2,idparde : 1},
-        {titulo:"Usaurios",url:"usuarios",icono:"fa fa-user" ,idMenu : 3,idparde : 1},
-        {titulo:"Productos",url:"producto",icono:"fa fa-cubes" ,idMenu : 4,idparde : 1},
-        {titulo:"Compania",url:"compania",icono:"fa fa-cubes" ,idMenu : 5,idparde : 1},
-        {titulo:"Clientes",url:"cliente",icono:"fa fa-user-circle",idMenu : 6,midparde : 1},
-        {titulo:"Inspection",url:"inspection",icono:"fa fa-user-circle",idMenu : 7,midparde : 1}
+      submenu:[        
+        {titulo:"Crédito",url:"credito",icono:"fas fa-angle-left" ,idMenu : 2,idparde : 1},
+        {titulo:"Tarea",url:"tarea",icono:"fa fa-user" ,idMenu : 3,idparde : 1},
+        {titulo:"Compania",url:"compania",icono:"fa fa-cubes" ,idMenu : 4,idparde : 1},
+        {titulo:"Inspection",url:"inspection",icono:"fa fa-user-circle",idMenu : 5,midparde : 1},
+        {titulo:"Employee",url:"employee",icono:"fa fa-user" ,idMenu : 6,idparde : 1},
+        {titulo:"Usaurios",url:"usuarios",icono:"fa fa-user" ,idMenu : 7,idparde : 1},
+        {titulo:"Productos",url:"producto",icono:"fa fa-cubes" ,idMenu : 8,idparde : 1},        
+        {titulo:"Clientes",url:"cliente",icono:"fa fa-user-circle",idMenu : 9,midparde : 1},
+        
       ]
       ,idMenu : 1
       ,idPadre :  0
